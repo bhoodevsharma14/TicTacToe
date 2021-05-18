@@ -34,7 +34,7 @@ public class TicTacToe {
 				PLAYER=' ';
 			}
 			
-		sc.close();
+//		sc.close();
 		
 
 	}
@@ -58,6 +58,28 @@ public class TicTacToe {
 		}
 	}
 	
+	static char[] playerMove(char[] board)
+	{
+		
+			
+			System.out.println("Please Enter A Position Where You Want To Move from 1-9 : ");
+			Scanner scan=new Scanner(System.in);
+			
+			int movePosition;
+			
+			movePosition=scan.nextInt();
+			
+			if(movePosition<1 || movePosition>9 )
+				System.out.println("You Entered A INVALID MOVE!!! ");
+			else if(board[movePosition]==' ')
+				board[movePosition]=PLAYER;
+			else
+				System.out.println("Position In Already Taken!!!");
+			
+			
+		
+		return board;
+	}
 	
 	
 	public static void main(String[] args)
@@ -65,6 +87,8 @@ public class TicTacToe {
 		System.out.println("Welcome to Tic Tac Toe Game");
 		char[] board=createNewBoard();
 		playerCharacter();
+		displayBoard(board);
+		board=playerMove(board);
 		displayBoard(board);
 	}
 
