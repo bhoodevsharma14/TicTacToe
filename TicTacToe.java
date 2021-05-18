@@ -23,7 +23,7 @@ public class TicTacToe {
 		
 		PLAYER=sc.next().toUpperCase().charAt(0);
 		
-		
+			
 		if(PLAYER=='X')
 			COMPUTER='O';
 		else if(PLAYER=='O')
@@ -39,12 +39,33 @@ public class TicTacToe {
 
 	}
 	
+	static void displayBoard(char[] board)
+	{	int horizontal=0;
+		for(int pos=1;pos<10;pos++)
+		{
+			System.out.print(board[pos]);
+			
+			if(pos%3==0)
+			{
+				horizontal++;
+				if(horizontal>2)
+					System.out.println();
+				else
+					System.out.print("\n_ _ _\n");
+			}
+			else
+				System.out.print("|");
+		}
+	}
+	
+	
+	
 	public static void main(String[] args)
 	{
 		System.out.println("Welcome to Tic Tac Toe Game");
 		char[] board=createNewBoard();
 		playerCharacter();
-		
+		displayBoard(board);
 	}
 
 }
